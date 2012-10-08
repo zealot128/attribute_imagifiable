@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "attribute_imagifiable"
-  gem.version       = "0.0.2"
+  gem.version       = "0.0.3"
   gem.authors       = ["Stefan Wienert", "Akos Toth"]
   gem.email         = ["stefan.wienert@pludoni.de"]
   gem.description   = %q{Using paperclip to generate images from sensible attributes like e-mails and telephone numbers, in order to reduce crawler's success}
