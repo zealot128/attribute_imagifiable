@@ -9,7 +9,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["stefan.wienert@pludoni.de"]
   gem.description   = %q{Using paperclip to generate images from sensible attributes like e-mails and telephone numbers, in order to reduce crawler's success}
   gem.summary       = gem.description
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/zealot128/attribute_imagifiable"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
