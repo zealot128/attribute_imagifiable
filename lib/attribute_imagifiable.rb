@@ -14,7 +14,7 @@ module AttributeImagifiable
       @_imagifiable_attributes[attribute] = options[:as]
 
       if (not column_names.include? "#{options[:as]}_file_name") or !self.instance_methods.include?(options[:as])
-        raise ArgumentError.new "Add #{options[:as]} Paperclip attribute before using attribute_imagifiable"
+        $stderr.puts "Add #{options[:as]} Paperclip attribute before using attribute_imagifiable"
       end
     end
   end
