@@ -24,7 +24,7 @@ module AttributeImagifiable
     attributes =  self.class.instance_variable_get("@_imagifiable_attributes")
     attributes.each do |attribute, as|
       value = send(attribute)
-      if send "#{attribute}_changed?"
+      if send("#{attribute}_changed?") || !send(as).exists?
         if value.present?
           arg = Shellwords.escape(value)
           tmp_name = Rails.root.join("tmp/#{as}-#{SecureRandom.hex(10)}.jpg")
