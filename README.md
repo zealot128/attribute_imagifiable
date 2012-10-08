@@ -1,6 +1,7 @@
 # AttributeImagifiable
 
-TODO: Write a gem description
+
+Using paperclip to generate images from sensible attributes like e-mails and telephone numbers, in order to reduce crawler's success
 
 ## Installation
 
@@ -18,12 +19,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+include and use in your Models:
 
-## Contributing
+```ruby
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+class Person < ActiveRecord::Base
+...
+
+  has_attached_file :telephone_image,
+                    styles: {small: "150x105>"},
+                    url: '/system/:class/:attachment/:id/:style/:filename'
+  has_attached_file :mail_image,
+                    styles: {small: "150x105>"},
+                    url: '/system/:class/:attachment/:id/:style/:filename'
+  include AttributeImagifiable
+  attribute_imagifiable :telefon, as: :telephone_image
+  attribute_imagifiable :email, as: :mail_image
+
+```
+This will automatically generate an image for the "telefon" and "email" attribute before each update, if that attribute changed.
+
+IMPORTANT: Use and generate paperclip attachments and attributes before
