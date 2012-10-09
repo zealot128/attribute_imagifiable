@@ -32,7 +32,7 @@ module AttributeImagifiable
         if value.present?
           arg = Shellwords.escape(value)
           tmp_name = Rails.root.join("tmp/#{as}-#{SecureRandom.hex(10)}.jpg")
-          cmd = "convert -fill black -font #{font} -gravity center -size x40 label:#{arg} #{tmp_name}"
+          cmd = "convert -fill black -font #{font} -gravity center -size x65 label:#{arg} #{tmp_name}"
           unless system(cmd)
             raise RuntimeError.new "Image generation of #{attribute} failed. #{tmp_name}"
           end
