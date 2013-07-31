@@ -19,6 +19,14 @@ Or install it yourself as:
 
 ## Usage
 
+1. Generate Paperclip attachments
+
+```
+rails g paperclip person email_image
+rails g paperclip person telephone_image
+rake db:migrate
+```
+
 include and use in your Models:
 
 ```ruby
@@ -29,14 +37,13 @@ class Person < ActiveRecord::Base
   has_attached_file :telephone_image,
                     styles: {small: "150x105>"},
                     url: '/system/:class/:attachment/:id/:style/:filename'
-  has_attached_file :mail_image,
+  has_attached_file :email_image,
                     styles: {small: "150x105>"},
                     url: '/system/:class/:attachment/:id/:style/:filename'
   include AttributeImagifiable
-  attribute_imagifiable :telefon, as: :telephone_image
+  attribute_imagifiable :telephone, as: :telephone_image
   attribute_imagifiable :email, as: :mail_image
 
 ```
-This will automatically generate an image for the "telefon" and "email" attribute before each update, if that attribute changed.
+This will automatically generate an image for the "telephone" and "email" attribute before each update, if that attribute changed.
 
-IMPORTANT: Use and generate paperclip attachments and attributes before
