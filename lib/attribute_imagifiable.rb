@@ -3,7 +3,7 @@ module AttributeImagifiable
   extend ActiveSupport::Concern
 
   included do
-    after_validation :generate_image
+    before_save :generate_image
   end
 
 

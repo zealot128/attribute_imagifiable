@@ -27,7 +27,7 @@ rails g paperclip person telephone_image
 rake db:migrate
 ```
 
-include and use in your Models:
+2. Include and use in your Models:
 
 ```ruby
 
@@ -47,3 +47,5 @@ class Person < ActiveRecord::Base
 ```
 This will automatically generate an image for the "telephone" and "email" attribute before each update, if that attribute changed.
 
+
+attribute_imagifiable takes an optional ``:font`` parameter with path to a system ttf font. Default is "/usr/share/fonts/truetype/msttcorefonts/Verdana.ttf".
